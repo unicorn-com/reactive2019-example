@@ -13,7 +13,7 @@ function Box(props) {
   let screenSize =  useScreenSize();
   let text = props.children || "Box"
   let backgroundColor = props.color || "white";
-  let style = Object.assign({},BoxStyle,{backgroundColor});
+  let style = {...BoxStyle, backgroundColor};
 
   return <div style={style}>{text}<br/>{screenSize}</div>
 }
@@ -41,7 +41,7 @@ function App2() {
 function App() {
   return (
     <div className="App">
-      {_generateBoxes(100)}
+      {_generateBoxes(1000)}
     </div>
   );
 }

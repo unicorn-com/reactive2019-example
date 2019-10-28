@@ -1,7 +1,7 @@
 import React, {createContext, useEffect, useState, useContext} from "react";
 
 //define screen sizes (Bootstrap)
-export const ScreenSizeMap = {
+const ScreenSizeMap = {
     xl: 1200,
     l:  992,
     m:  768,
