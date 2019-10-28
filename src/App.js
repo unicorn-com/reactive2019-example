@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {ScreenSizeProvider, useScreenSize} from "./screen-size.js";
+
+const BoxStyle={
+  height:"50px",
+  width:"100%",
+  textAlign:"center",
+  border:"1px solid"
+}
+
+function Box(props) {
+  let screenSize =  useScreenSize();
+  let text = props.children || "Box"
+  let backgroundColor = props.color || "white";
+  let style = Object.assign({},BoxStyle,{backgroundColor});
+
+  return <div style={style}>{text}<br/>{screenSize}</div>
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ScreenSizeProvider>
+        <Box color="red">Box 1</Box>
+        <Box color={"blue"}>Box 2</Box>
+        <Box/>
+      </ScreenSizeProvider>
     </div>
   );
 }
