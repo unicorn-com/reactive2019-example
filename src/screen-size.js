@@ -44,7 +44,7 @@ export function useScreenSize() {
       window.removeEventListener("resize",setNewScreenSize);
       window.removeEventListener("orientationchange", setNewScreenSize);
     });
-  },[screenSize]);
+  });
   return screenSize;
 }
 
