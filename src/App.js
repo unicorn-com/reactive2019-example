@@ -18,14 +18,30 @@ function Box(props) {
   return <div style={style}>{text}<br/>{screenSize}</div>
 }
 
-function App() {
+function _generateBoxes(count) {
+  let a = new Array(count);
+  for(let i=0; i < count; i++) {
+    a[i] = (<Box>{`Box ${i+1}`}</Box>);
+  }
+  return React.Children.toArray(a);
+}
+
+function App2() {
   return (
     <div className="App">
-      <ScreenSizeProvider>
+      {/**<ScreenSizeProvider>**/}
         <Box color="red">Box 1</Box>
         <Box color={"blue"}>Box 2</Box>
         <Box/>
-      </ScreenSizeProvider>
+      {/**</ScreenSizeProvider>**/}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className="App">
+      {_generateBoxes(100)}
     </div>
   );
 }
