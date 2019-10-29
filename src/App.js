@@ -13,13 +13,11 @@ const BoxStyle={
   border:"1px solid"
 };
 
-function Box(props) {
+function Box({children = "Box", backgroundColor="white"}) {
   let screenSize =  useScreenSize();
-  let text = props.children || "Box"
-  let backgroundColor = props.color || "white";
-  let style = Object.assign({},BoxStyle,{backgroundColor});
+  let style = {...BoxStyle, backgroundColor};
 
-  return <div style={style}>{text}<br/>{screenSize}</div>
+  return <div style={style}>{children}<br/>{screenSize}</div>
 }
 
 function _generateBoxes(count) {
