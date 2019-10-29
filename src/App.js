@@ -4,8 +4,10 @@ import React from 'react';
 import {useScreenSize} from "./screen-size.js";
 
 const BoxStyle={
-  height:"50px",
-  width:"100%",
+  height:"48px",
+  marginTop:"5px",
+  marginLeft:"5%"
+  width:"90%",
   textAlign:"center",
   border:"1px solid"
 }
