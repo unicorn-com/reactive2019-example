@@ -10,7 +10,7 @@ const BoxStyle={
   width:"90%",
   textAlign:"center",
   border:"1px solid"
-}
+};
 
 function Box(props) {
   let screenSize =  useScreenSize();
