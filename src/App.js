@@ -3,11 +3,13 @@ import './App.css';
 import {ScreenSizeProvider, useScreenSize} from "./screen-size.js";
 
 const BoxStyle={
-  height:"50px",
-  width:"100%",
+  height:"48px",
+  marginTop:"5px",
+  marginLeft:"5%",
+  width:"90%",
   textAlign:"center",
   border:"1px solid"
-}
+};
 
 function Box(props) {
   let screenSize =  useScreenSize();
@@ -31,18 +33,6 @@ function App() {
     <div className="App">
       <ScreenSizeProvider>
       {_generateBoxes(1000)}
-      </ScreenSizeProvider>
-    </div>
-  );
-}
-
-function App2() {
-  return (
-    <div className="App">
-      <ScreenSizeProvider>
-        <Box color="red">Box 1</Box>
-        <Box color={"blue"}>Box 2</Box>
-        <Box/>
       </ScreenSizeProvider>
     </div>
   );
