@@ -12,22 +12,22 @@ export const ScreenSizeMap = {
 //create context
 const ScreenSizeContext = createContext(_getScreenSize());
 
-//create root screensize component with state and provider
-export const ScreenSizeProvider = (props) => {
+//create root screenSize component with state and provider
+export const ScreenSizeProvider = ({children}) => {
   let screenSize = useGetScreenSize();
   return (
     <ScreenSizeContext.Provider value={screenSize}>
-      {props.children}
+      {children}
     </ScreenSizeContext.Provider>
   )
 };
 
-//custom hook
+//custom hook for components
 export function useScreenSize() {
   return useContext(ScreenSizeContext);
 }
 
-//custom hook
+//custom hook for provider
 export function useGetScreenSize() {
   let [screenSize, setScreenSize] = useState(_getScreenSize());
 
