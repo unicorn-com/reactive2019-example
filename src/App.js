@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-import {ScreenSizeProvider, useScreenSize} from "./screen-size.js";
+import {useScreenSize} from "./screen-size.js";
 
 const BoxStyle={
   height:"50px",
@@ -24,18 +23,6 @@ function _generateBoxes(count) {
     a[i] = (<Box>{`Box ${i+1}`}</Box>);
   }
   return React.Children.toArray(a);
-}
-
-function App2() {
-  return (
-    <div className="App">
-      {/**<ScreenSizeProvider>**/}
-        <Box color="red">Box 1</Box>
-        <Box color={"blue"}>Box 2</Box>
-        <Box/>
-      {/**</ScreenSizeProvider>**/}
-    </div>
-  );
 }
 
 function App() {
