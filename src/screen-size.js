@@ -10,7 +10,7 @@ export const ScreenSizeMap = {
 };
 
 //create context
-export const ScreenSizeContext = createContext(_getScreenSize());
+const ScreenSizeContext = createContext(_getScreenSize());
 
 //create root screensize component with state and provider
 export const ScreenSizeProvider = (props) => {
@@ -21,6 +21,11 @@ export const ScreenSizeProvider = (props) => {
     </ScreenSizeContext.Provider>
   )
 };
+
+//custom hook
+export function useScreenSize() {
+  return useContext(ScreenSizeContext);
+}
 
 //custom hook
 export function useGetScreenSize() {
@@ -46,10 +51,6 @@ export function useGetScreenSize() {
   return screenSize;
 }
 
-//custom hook
-export function useScreenSize() {
-  return useContext(ScreenSizeContext);
-}
 
 //helper function to get screenSize
 function _getScreenSize(element = window) {
