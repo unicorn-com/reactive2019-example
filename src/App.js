@@ -14,7 +14,7 @@ const BoxStyle={
 
 function Box(props) {
   let screenSize =  useScreenSize();
-  let text = props.children || "Box"
+  let text = props.children || "Box";
   let backgroundColor = props.color || "white";
   let style = {...BoxStyle, backgroundColor};
 
