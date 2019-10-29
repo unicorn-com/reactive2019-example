@@ -123,7 +123,6 @@ function Contact(props) {
   return (
     <div>
       Name: {name} <br/>
-      Email: {email} <br/>
       <button onClick={() => _rename()}/>>
     </div>
   )
