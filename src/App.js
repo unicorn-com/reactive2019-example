@@ -1,5 +1,7 @@
+
+
+
 import React from 'react';
-import './App.css';
 import {ScreenSizeProvider, useScreenSize} from "./screen-size.js";
 
 const BoxStyle={
