@@ -6,7 +6,7 @@ import {useScreenSize} from "./screen-size.js";
 const BoxStyle={
   height:"48px",
   marginTop:"5px",
-  marginLeft:"5%"
+  marginLeft:"5%",
   width:"90%",
   textAlign:"center",
   border:"1px solid"
