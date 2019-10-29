@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState, useContext} from "react";
+import React, {createContext, useEffect, useState, useContext, useRef} from "react";
 
 //define screen sizes
 export const ScreenSizeMap = {
@@ -14,7 +14,9 @@ const ScreenSizeContext = createContext(_getScreenSize());
 
 //create root screensize component with state and provider
 export const ScreenSizeProvider = (props) => {
-  let screenSize = useGetScreenSize();
+  let [ss, setSS] = useState(_getScreenSize());
+  let screenSize = useGetScreenSize(setSS);
+
   return (
     <ScreenSizeContext.Provider value={screenSize}>
       {props.children}
@@ -29,26 +31,26 @@ export function useScreenSize() {
 
 //custom hook
 export function useGetScreenSize() {
-  let [screenSize, setScreenSize] = useState(_getScreenSize());
-
+  let ref = useRef(_getScreenSize());
   useEffect(()=>{
     function setNewScreenSize() {
       let nss = _getScreenSize();
-      if (nss !== screenSize) {
-        console.log(`Changing screenSize from "${screenSize}" to "${nss}".`);
-        setScreenSize(nss);
+      if (nss !== ref.current) {
+        console.log(`Changing screenSize from "${ref.current}" to "${nss}".`);
+        ref.current = nss;
       }
     }
-
+    console.log("addEventListener");
     window.addEventListener("resize",setNewScreenSize);
     window.addEventListener("orientationchange", setNewScreenSize);
 
     return (() => {
+      console.log("removeEventListener");
       window.removeEventListener("resize",setNewScreenSize);
       window.removeEventListener("orientationchange", setNewScreenSize);
     });
-  },[screenSize]);
-  return screenSize;
+  },[]);
+  return ref.current;
 }
 
 
