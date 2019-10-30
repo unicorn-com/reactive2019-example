@@ -12,7 +12,11 @@ export const ScreenSizeMap = {
 //create context
 const ScreenSizeContext = createContext(_getScreenSize());
 
+<<<<<<< HEAD
 //create root screenSize component with state and provider
+=======
+//create root screensize component with state and provider
+>>>>>>> sprint
 export const ScreenSizeProvider = ({children}) => {
   let screenSize = useGetScreenSize();
   return (
